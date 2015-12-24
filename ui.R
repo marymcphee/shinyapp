@@ -10,7 +10,7 @@ shinyUI(pageWithSidebar(
         sidebarPanel(
                 selectInput("which", "Convert to Celsius or Farenheit:", 
                             choices = c("Celsius", "Farenheit")),
-                numericInput('temp', 'Temperature in Existing Units', 60, min = -40, max = 200, step = 1),
+                numericInput('temp', 'Temperature in Existing Units (ie Farenheit if you entered Celsius above)', 60, min = -40, max = 200, step = 1),
                 submitButton('Submit')
 
         ),

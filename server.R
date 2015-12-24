@@ -22,15 +22,16 @@ shinyServer(function(input, output) {
         #all of the below will render as tempPlot
         output$tempPlot <- renderPlot({
                 #setting up the calculation for the crossed red lines intersecting on the temperature line
-                if (input$which=="Farenheit") {
-                        vline <- calcfarenheit(input$temp)
-                        hline <- calccelsius(input$temp)
-                } else {
+                if (input$which=="Celsius") {
                         vline <- calccelsius(input$temp)
+                        hline <- input$temp
+                } else {
                         hline <- calcfarenheit(input$temp)
+                        vline <- input$temp
+                        
                 }
                 #making a data frame of temperatures and then plotting them
-                data <- data.frame('degrees celsius'=calccelsius(-40:200),'degrees farenheit'=calcfarenheit(-40:200))
+                data <- data.frame('degrees celsius'=calccelsius(-40:200),'degrees farenheit'=(-40:200))
                 g <- ggplot(data, aes(x=degrees.celsius, y=degrees.farenheit))+geom_point()+ggtitle("Temperature in Degrees Celsius and Farenheit")
                 g+geom_vline(xintercept=vline, col="red")+geom_hline(yintercept=hline, col="red")
 

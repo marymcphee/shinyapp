@@ -2,6 +2,6 @@ name: shinyapp
 account: marymcphee
 server: shinyapps.io
 appId: 75135
-bundleId: 338021
+bundleId: 338025
 url: https://marymcphee.shinyapps.io/shinyapp
-when: 1450940862.12928
+when: 1450941724.23479
